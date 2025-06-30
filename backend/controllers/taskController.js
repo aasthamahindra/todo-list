@@ -15,6 +15,7 @@ exports.getTasks = async (req, res) => {
 exports.createTask = async (req, res) => {
     try {
         const { title, description } = req.body;
+        console.log(title, description, req.userId)
         const task = await Task.create({ title, description, user: req.userId });
         res.status(201).json(task)
     } catch (e) {
