@@ -29,6 +29,9 @@ export default function RegisterPage() {
                 <input name='email' type='email' placeholder='Email' onChange={handleChange} required />
                 <input name='password' type='password' placeholder='Password' onChange={handleChange} required />
                 <button type='submit'>SIGN UP</button>
+                <p className="auth-switch-text">
+                    Already have an account? <a href="/login">Sign In</a>
+                </p>
             </form>
         </div>
     );

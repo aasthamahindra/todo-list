@@ -31,6 +31,9 @@ export default function LoginPage() {
                 <input name='email' type='email' placeholder='Email' onChange={handleChange} required />
                 <input name='password' type='password' placeholder='Password' onChange={handleChange} required />
                 <button type='submit'>LOGIN</button>
+                <p className="auth-switch-text">
+                    Don't have an account? <a href="/register">Sign up</a>
+                </p>
             </form>
         </div>
     );

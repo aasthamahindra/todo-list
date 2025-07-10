@@ -66,4 +66,20 @@
 
   .auth-card button:hover {
     background-color: #a066e5;
-}
+  }
+
+  .auth-switch-text {
+    margin-top: 1rem;
+    font-size: 14px;
+    color: #777;
+  }
+
+  .auth-switch-text a {
+    color: #b57eff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .auth-switch-text a:hover {
+    text-decoration: underline;
+  }
