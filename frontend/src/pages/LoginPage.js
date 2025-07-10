@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import '../styles/auth.css';
 
 export default function LoginPage() {
     const [form, setForm] = useState({ email: '', password: ''});
@@ -24,11 +25,13 @@ export default function LoginPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Sign-In</h2>
-            <input name='email' type='email' placeholder='Email' onChange={handleChange} required />
-            <input name='password' type='password' placeholder='Password' onChange={handleChange} required />
-            <button type='submit'>Sign In</button>
-        </form>
+        <div className='auth-page'>
+            <form className='auth-card' onSubmit={handleSubmit}>
+                <h2>Welcome Back</h2>
+                <input name='email' type='email' placeholder='Email' onChange={handleChange} required />
+                <input name='password' type='password' placeholder='Password' onChange={handleChange} required />
+                <button type='submit'>LOGIN</button>
+            </form>
+        </div>
     );
 }
