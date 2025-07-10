@@ -11,7 +11,7 @@ export default function TodoPage() {
   const { token, logout } = useAuth();
 
   const fetchTasks = async () => {
-    const res = await axios.get("http://localhost:3000/tasks", {
+    const res = await axios.get("http://localhost:3000/", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setTasks(res.data);
