@@ -1,0 +1,121 @@
+/* Background and layout */
+.todo-page {
+    background-color: #e6eaff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  /* Header */
+  .todo-header {
+    background-color: #b57eff;
+    color: white;
+    font-size: 20px;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Card container */
+  .todo-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* Task item */
+  .todo-task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 16px;
+  }
+
+  .todo-task input[type="checkbox"] {
+    margin-right: 12px;
+    accent-color: #b57eff;
+  }
+
+  .todo-task.completed span {
+    text-decoration: line-through;
+    color: #aaa;
+  }
+
+  /* Trash icon (can be fontawesome or emoji for now) */
+  .todo-task .delete-btn {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .todo-task .delete-btn:hover {
+    color: #b57eff;
+  }
+
+  /* Filter and sort */
+  .todo-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .todo-controls select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+  }
+
+  /* Add Task Form */
+  .task-form input {
+    padding: 10px;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+
+  .task-form button {
+    background-color: #b57eff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .task-form button:hover {
+    background-color: #a066e5;
+  }
+
+  /* Floating + New task button */
+  .new-task-button {
+    position: fixed;
+    bottom: 24px;
+    background-color: #b57eff;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 999px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .new-task-button:hover {
+    background-color: #a065e5;
+  }
