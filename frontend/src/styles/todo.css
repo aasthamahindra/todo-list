@@ -27,6 +27,9 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
   }
 
   /* Task item */
@@ -34,8 +37,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     font-size: 16px;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
   }
 
   .todo-task input[type="checkbox"] {
@@ -67,33 +72,31 @@
     justify-content: space-between;
     margin-bottom: 1.5rem;
   }
-
   .todo-controls select {
-    padding: 8px 12px;
+    padding: 10px;
     border-radius: 8px;
     border: 1px solid #ccc;
+    width: 160px;
     font-size: 14px;
   }
 
   /* Add Task Form */
   .task-form input {
     padding: 10px;
-    margin-bottom: 1rem;
-    width: 100%;
     border-radius: 8px;
     border: 1px solid #ccc;
+    margin-bottom: 0.75rem;
   }
 
   .task-form button {
     background-color: #b57eff;
     color: white;
+    font-weight: bold;
     border: none;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    width: 100%;
-    margin-top: 0.5rem;
+    transition: background-color 0.2s ease;
   }
 
   .task-form button:hover {
@@ -136,3 +139,18 @@
   .logout-button:hover {
     background-color: #f8bbd0;
   }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 2px solid #999;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .dot-completed {
+    background-color: #b57eff;
+    border-color: #b57eff;
+  }
+

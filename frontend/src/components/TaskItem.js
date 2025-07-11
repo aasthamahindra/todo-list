@@ -22,36 +22,22 @@ export default function TaskItem({ task, onChange }) {
   };
 
   return (
-    <div className="flex items-center justify-between py-2 border-b last:border-b-0">
-      {/* Left: round dot + title */}
-      <div className="flex items-center gap-3 cursor-pointer" onClick={toggleComplete}>
-        {/* Dot */}
-        <div
-          className={`h-4 w-4 rounded-full border-2 transition ${
-            task.completed ? 'bg-purple-500 border-purple-500' : 'border-gray-400'
-          }`}
-        ></div>
-        {/* Title */}
-        <div
-          className={`text-sm ${
-            task.completed ? 'line-through text-gray-400' : 'text-gray-800'
-          }`}
-        >
-          {task.title}
-        </div>
+    <div className={`todo-task ${task.completed ? 'completed' : ''}`}>
+      <div onClick={toggleComplete} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+      <div
+          className={`dot ${task.completed ? 'dot-completed' : ''}`}
+          onClick={toggleComplete}
+        />
+        <span>{task.title}</span>
       </div>
+      {task.description && (
+            <div className="text-sm text-gray-500 mt-1 ml-6">
+              {task.description}
+            </div>
+      )}
 
-      {/* Right: Trash icon */}
-      <button onClick={deleteTask} className="text-gray-400 hover:text-red-400 transition">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-        </svg>
+      <button onClick={deleteTask} className="delete-btn" title="Delete task">
+        🗑️
       </button>
     </div>
   );

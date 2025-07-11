@@ -26,7 +26,7 @@ export default function TaskForm({ onAdd }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input name="title" placeholder="Task Title" value={form.title} onChange={handleChange} required />
+            <input id="new-task-input" name="title" placeholder="Task title..." value={form.title} onChange={handleChange} required/>
             <input name="description" placeholder="Description" value={form.description} onChange={handleChange} required />
             <button type="submit">Add Task</button>
         </form>
