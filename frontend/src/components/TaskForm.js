@@ -14,11 +14,11 @@ export default function TaskForm({ onAdd }) {
         e.preventDefault();
         if (!form.title.trim()) return;
         try {
-            await axios.post('http://localhost:3000/api/tasks', form, {
+            await axios.post('http://localhost:3000/task', form, {
                 headers: { Authorization: `Bearer ${token}`},
             });
             setForm({ title: '', description: '' });
-            onAdd();
+            if (onAdd) onAdd();
         } catch (err) {
             alert('Error adding task');
         }
@@ -26,8 +26,8 @@ export default function TaskForm({ onAdd }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input id="new-task-input" name="title" placeholder="Task title..." value={form.title} onChange={handleChange} required/>
-            <input name="description" placeholder="Description" value={form.description} onChange={handleChange} required />
+            <input type="text" name="title" placeholder="Task title..." value={form.title} onChange={handleChange} required/>
+            <input type="text" name="description" placeholder="Description" value={form.description} onChange={handleChange} required />
             <button type="submit">Add Task</button>
         </form>
     );

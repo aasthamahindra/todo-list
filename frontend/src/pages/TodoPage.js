@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import TaskItem from "../components/TaskItem";
@@ -13,11 +14,12 @@ export default function TodoPage() {
   const [showForm, setShowForm] = useState(false);
   const { token, logout } = useAuth();
 
+  const navigate = useNavigate();
+
   const fetchTasks = async () => {
     const res = await axios.get("http://localhost:3000/task", {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log({ res })
     setTasks(res.data);
   };
 
@@ -39,29 +41,29 @@ export default function TodoPage() {
 
   return (
     <div className="todo-page">
-      <div className="todo-header">Website todo</div>
       <div className="todo-card">
         {/* Controls */}
         <div className="todo-controls">
-          <label>
-            Filter:
-            <select onChange={(e) => setFilter(e.target.value)} value={filter}>
-              <option value="all">All</option>
-              <option value="completed">Completed</option>
-              <option value="pending">Pending</option>
-            </select>
-          </label>
+          <div className="control-group">
+            <label>
+              <span className="control-label">Filter:</span>
+              <select onChange={(e) => setFilter(e.target.value)} value={filter}>
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+              </select>
+            </label>
+          </div>
 
-          <label>
-            Sort:
-            <select
-              onChange={(e) => setSortOrder(e.target.value)}
-              value={sortOrder}
-            >
-              <option value="desc">Newest First</option>
-              <option value="asc">Oldest First</option>
-            </select>
-          </label>
+          <div className="control-group">
+            <label>
+              <span className="control-label">Sort:</span>
+              <select onChange={(e) => setSortOrder(e.target.value)} value={sortOrder}>
+                <option value="desc">Newest First</option>
+                <option value="asc">Oldest First</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         {/* Tasks */}
@@ -90,7 +92,7 @@ export default function TodoPage() {
       {/* Floating Button */}
       <button
         className="new-task-button"
-        onClick={() => setShowForm(true)}
+        onClick={() => navigate('/todos/new')}
       >
         + New task
       </button>

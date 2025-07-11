@@ -7,7 +7,7 @@ export default function TaskItem({ task, onChange }) {
 
   const toggleComplete = async () => {
     await axios.put(
-      `http://localhost:3000/tasks/${task._id}`,
+      `http://localhost:3000/task/${task._id}`,
       { completed: !task.completed },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -15,7 +15,7 @@ export default function TaskItem({ task, onChange }) {
   };
 
   const deleteTask = async () => {
-    await axios.delete(`http://localhost:3000/tasks/${task._id}`, {
+    await axios.delete(`http://localhost:3000/task/${task._id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     onChange();

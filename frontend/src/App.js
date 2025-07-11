@@ -4,9 +4,11 @@ import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import TodoPage from './pages/TodoPage';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import NewTaskPage from './pages/NewTaskPage';
 
 function PrivateRoute({ children }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  if (loading) return <div>Loading...</div>;
   return user ? children : <Navigate to='/login' />;
 }
 
@@ -18,6 +20,7 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/todos' element={<PrivateRoute><TodoPage /></PrivateRoute>} />
+          <Route path='/todos/new' element={<PrivateRoute><NewTaskPage /></PrivateRoute>} />
         </Routes>
       </Router>
     </AuthProvider>
