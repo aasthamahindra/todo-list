@@ -119,3 +119,20 @@
   .new-task-button:hover {
     background-color: #a065e5;
   }
+
+  .logout-button {
+    margin-top: 1rem;
+    background-color: #fce4ec;
+    color: #d32f2f;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .logout-button:hover {
+    background-color: #f8bbd0;
+  }
